@@ -68,9 +68,7 @@ Legend:
 
 ## 📁 Project Structure Overview
 
-- `boot/` – Bootloader and startup code  
-- `kernel/` – Core OS: memory, tasking, syscall dispatch  
-- `drivers/` – HDMI, audio, input, SD card, network  
+- `os/` – Core OS: syscall dispatch, drivers
 - `ui/` – Launcher UI code  
 - `games/` – Demo games and loading logic  
 - `lib/` – Shared libraries for game developers  

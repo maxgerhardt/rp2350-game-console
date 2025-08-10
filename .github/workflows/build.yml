@@ -22,3 +22,6 @@ jobs:
 
       - name: Build OS firmware
         run: pio run -e main_os
+
+      - name: Build Game "Hello World"
+        run: pio run -e game_hello_world

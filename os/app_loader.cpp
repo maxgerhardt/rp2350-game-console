@@ -9,7 +9,7 @@
  */
 bool startup_app() {
     // Load app header from flash
-    app_header_t* app_header = (app_header_t*)0x10000000 + 0x100000; // 1 MB offset
+    app_header_t* app_header = (app_header_t*)(0x10000000 + 0x100000); // 1 MB offset
     if (app_header->magic != APP_HEADER_MAGIC) {
         Serial.println("Invalid app header magic");
         return false;
@@ -33,6 +33,7 @@ bool startup_app() {
     }
     Serial.println("Application entry point is valid, starting application...");
     Serial.flush();
+    //delay(2000);
     // Call the application entry point
     app_entry_point();
     return true;

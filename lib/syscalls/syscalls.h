@@ -11,7 +11,7 @@ extern "C" {
  *  @param arg Pointer to the argument for the system call.
  */
 #pragma GCC push_options
-#pragma optmize("Os")
+#pragma GCC optimize("Os")
 static inline int syscall(int svc_num, void* arg) {
     register int r0 asm("r0") = (int)arg;   // argument pointer
     register int r1 asm("r1") = svc_num;    // syscall number

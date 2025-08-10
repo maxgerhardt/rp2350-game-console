@@ -10,7 +10,8 @@ int syscall_exit(void* arg) {
     int exit_code = (int)(intptr_t)arg;
     Serial.print("Exited with code: ");
     Serial.println(exit_code);
+    Serial.flush();
     // Perform any necessary cleanup here
-    while (true); // halt the system
+    //while (true); // halt the system
     return 0; // should not reach here
 }

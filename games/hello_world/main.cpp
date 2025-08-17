@@ -1,5 +1,7 @@
 #include "syscalls.h"
 #include "app_header.h"
+#include <stdio.h>
+#include <string.h>
 
 int main(int argc, char** argv);
 extern "C" void start(void); 
@@ -18,7 +20,14 @@ int main(int argc, char** argv) {
     (void)argv; // Unused parameter
 
     const char *message = "Hello, World!\n";
-    syscall(SYSCALL_PRINT, (void*)message);
+    char buf[64];
+    volatile int i = 123;
+    snprintf(buf, sizeof(buf), "Message: %d %s", i, message);
+    syscall(SYSCALL_PRINT, (void*)buf);
     syscall(SYSCALL_EXIT, 0);
+
+    volatile float f = 3.14f;
+    volatile float g = 2*f;
+
     return 0;
 }

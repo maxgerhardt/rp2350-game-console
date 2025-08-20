@@ -15,8 +15,8 @@ void loop() {
     digitalWrite(LED, LOW);
     delay(1000);
     // test out print syscall
-    const char* message = "Hello from RP2350!";
-    int ret = syscall(SYSCALL_PRINT, (void*)message);
+    const char* message = "Hello from RP2350!\r\n";
+    int ret = syscall(SYSCALL_PRINTSTR, (void*)message);
     Serial.println("Syscall print returned: " + String(ret));
     startup_app();
 }

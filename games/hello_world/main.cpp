@@ -23,7 +23,7 @@ int main(int argc, char** argv) {
     char buf[64];
     volatile int i = 123;
     snprintf(buf, sizeof(buf), "Message: %d %s", i, message);
-    syscall(SYSCALL_PRINT, (void*)buf);
+    syscall(SYSCALL_PRINTSTR, (void*)buf);
     syscall(SYSCALL_EXIT, 0);
 
     volatile float f = 3.14f;

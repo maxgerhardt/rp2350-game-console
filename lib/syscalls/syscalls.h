@@ -17,6 +17,10 @@ typedef enum {
     SYSCALL_FLUSH = 2,
     SYSCALL_READ = 3,
     SYSCALL_READ_TIMEDOUT = 4,
+    /* Subsystem: millis and delay */
+    SYSCALL_MILLIS_GET,
+    SYSCALL_DELAY_MS,
+    SYSCALL_DELAY_US,
     /* Subsystem: Application Control */
     SYSCALL_EXIT,
     /* Subsystem: File Access */
@@ -34,6 +38,8 @@ typedef enum {
     SYSCALL_GAMEPAD_GET_STATE,
     /* Subystem: Basic Graphics */
     SYSCALL_GRAPHICS_INIT,
+    SYSCALL_GRAPHICS_GET_DIMENSIONS,
+    SYSCALL_GRAPHICS_GET_FRAMEBUFFER,
     SYSCALL_GRAPHICS_CLEAR,
     SYSCALL_GRAPHICS_DRAW_PIXEL,
     SYSCALL_GRAPHICS_DRAW_LINE,
@@ -58,7 +64,7 @@ typedef enum {
     SYSCALL_SAVEGAME_DELETE,
     SYSCALL_SAVEGAME_LIST,
     /* Subsystem: Game engine functionality */
-    SYSCALL_RESOURCE_LOAD, // Load a resource (image, sound, etc.)
+    SYSCALL_RESOURCE_LOAD, // Load a resource (image, sound, font, etc.)
     SYSCALL_RESOURCE_UNLOAD, // Unload a resource
     SYSCALL_RESOURCE_GET_INFO, // Get information about a resource
     SYSCALL_GAME_OBJECT_CREATE, // Create a game object (with a behavior script and a position by default)

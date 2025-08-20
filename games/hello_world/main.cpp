@@ -6,14 +6,7 @@
 int main(int argc, char** argv);
 extern "C" void start(void); 
 
-__attribute__((section(".app_header"), used))
-const app_header_t my_app_header = {
-    APP_HEADER_MAGIC,
-    APP_HEADER_DEFAULT_VERSION,
-    (uint32_t)start,
-    sizeof(app_header_t),
-    "Hello World App"
-};
+MAKE_APP_HEADER("Hello World App", APP_HEADER_DEFAULT_VERSION, (uint32_t)start);
 
 int main(int argc, char** argv) {
     (void)argc; // Unused parameter

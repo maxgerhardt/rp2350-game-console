@@ -3,6 +3,10 @@
 
 #include <stdint.h>
 
+#ifndef __cplusplus
+extern "C" {
+#endif
+
 /**
  * @brief Application header structure.
  * 
@@ -19,5 +23,19 @@ typedef struct {
 
 #define APP_HEADER_MAGIC 0xAABBCCDD // Example magic number
 #define APP_HEADER_DEFAULT_VERSION 0x00010000 // Default version
+
+#define MAKE_APP_HEADER(app_name, app_version, app_entry_point) \
+    __attribute__((section(".app_header"), used)) \
+    const app_header_t app_header = { \
+        APP_HEADER_MAGIC, \
+        (app_version), \
+        (uint32_t)(app_entry_point), \
+        sizeof(app_header_t), \
+        app_name \
+    }
+
+#ifndef __cplusplus
+}
+#endif
 
 #endif // _APP_HEADER_H_
